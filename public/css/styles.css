@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #4caf50;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+.container {
+  max-width: 70rem;
+  border: 2px solid black;
+  margin: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  color: #4caf50;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+.nav-links a:hover {
+  color: #4caf50;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+.safety-assessment {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#about,
+#products,
+#how-it-works,
+#accreditation,
+#contact {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#about h2,
+#products h2,
+#how-it-works h2,
+#accreditation h2,
+#contact h2 {
+  color: #4caf50;
+}
+
+.values {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.values div {
+  width: 30%;
+}
+
+.values h3 {
+  color: #4caf50;
+}
+
+.values ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.values ul li {
+  text-align: left;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.product {
+  width: 30%;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+.accreditation-logos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.accreditation-logos img {
+  width: 20%;
+  height: auto;
+}
+
+footer {
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+footer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer form input,
+footer form textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+footer form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.contact-info {
+  margin-top: 20px;
+}

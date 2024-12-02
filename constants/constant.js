@@ -1,0 +1,7 @@
+const TEST_PASS_SCORE = 60;
+const TEST_PASS_PERCENTAGE = 60;
+
+module.exports = {
+  TEST_PASS_SCORE,
+  TEST_PASS_PERCENTAGE,
+};

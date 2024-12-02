@@ -1,0 +1,35 @@
+<!-- Main Container -->
+<div class="flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white p-8 rounded-lg shadow-md max-w-lg w-full">
+    <% if (activeTest?.status === "completed") { %>
+    <h1 class="text-2xl font-bold mb-4">Continue Your Test</h1>
+    <p class="mb-4">You have an active test, please continue where you left off.</p>
+    <p class="mb-4"><strong>Time Left:</strong> <%= activeTest.secondsLeft %> seconds</p>
+    <a
+      href="/dashboard/tests/continue-test"
+      class="bg-primary text-white px-4 py-2 rounded-md font-semibold text-center block hover:bg-primary-dark transition duration-300"
+    >
+      Continue Test
+    </a>
+    <% } else { %>
+    <h1 class="text-2xl font-bold mb-4">Test Instructions</h1>
+    <p class="mb-4">
+      You are about to start a timed test. Please make sure you have a stable internet connection
+      and a quiet environment to complete the test.
+    </p>
+    <p class="mb-4"><strong>Test Duration:</strong> 5 minutes</p>
+    <ul class="list-disc list-inside mb-6">
+      <li>Make sure you answer all the questions before time runs out.</li>
+      <li>The test will automatically submit when the time is up.</li>
+      <li>There is no negative marking for incorrect answers.</li>
+      <li>Stay focused and do not refresh the page during the test.</li>
+    </ul>
+    <a
+      href="/dashboard/tests/start-test"
+      class="bg-primary text-white px-4 py-2 rounded-md font-semibold text-center block hover:bg-primary-dark transition duration-300"
+    >
+      Get Started with the Test
+    </a>
+    <% } %>
+  </div>
+</div>

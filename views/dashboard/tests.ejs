@@ -1,0 +1,30 @@
+<header class="p-4 text-white flex justify-between items-center text-center">
+  <h1 class="text-2xl font-bold text-black">My Tests</h1>
+</header>
+
+<main class="container mx-auto mt-8 p-4">
+  <table class="w-full text-left table-auto border-collapse">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="p-2 border-b">Date Taken</th>
+        <th class="p-2 border-b">Title</th>
+        <th class="p-2 border-b">Score</th>
+        <th class="p-2 border-b">Percentage</th>
+        <th class="p-2 border-b">Duration (mins)</th>
+        <th class="p-2 border-b">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tests.forEach(test => { %>
+      <tr class="border-b hover:bg-gray-50">
+        <td class="p-2"><%= new Date(test.createdAt).toDateString() %></td>
+        <td class="p-2"><%= test.title %></td>
+        <td class="p-2"><%= test.score %></td>
+        <td class="p-2"><%= test.percentage %> %</td>
+        <td class="p-2"><%= test.duration %></td>
+        <td class="p-2 capitalize"><%= test.status %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</main>

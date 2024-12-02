@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/tailwind.css" />
+    <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
+    <style>
+      .menu-icon {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+
+  <%- include('../partials/header.ejs') %>
+  <body>
+    <main><%- body %></main>
+
+    <%- include('../partials/footer.ejs') %>
+
+    <!-- <script src="../../node_modules/flowbite/dist/flowbite.min.js"></script> -->
+  </body>
+</html>

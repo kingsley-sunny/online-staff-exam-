@@ -1,0 +1,116 @@
+<!-- Main Content -->
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <!-- Card 2 -->
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-4">Total Pickups</h2>
+    <p class="text-3xl font-bold"><%= totalPickups %></p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-4">Total Successful pickup</h2>
+    <p class="text-3xl font-bold"><%= totalSuccessfulPickups %></p>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-4">Total pending pickup</h2>
+    <p class="text-3xl font-bold"><%= totalPendingPickups %></p>
+  </div>
+
+  <!-- Chart -->
+  <!-- <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2 lg:col-span-3">
+              <h2 class="text-xl font-semibold mb-4">Monthly Sales</h2>
+              <canvas id="salesChart" width="400" height="200"></canvas>
+            </div> -->
+
+  <!-- Pickups -->
+  <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2 lg:col-span-3">
+    <h2 class="text-xl font-semibold mb-4">All Pickups</h2>
+
+    <section class="bg-gray-50 fdark:bg-gray-900 py-3">
+      <div class="mx-auto">
+        <!-- Start coding here -->
+        <div class="bg-white fdark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 fdark:text-gray-400">
+              <thead
+                class="text-xs text-gray-700 uppercase bg-gray-50 fdark:bg-gray-700 fdark:text-gray-400"
+              >
+                <tr>
+                  <th scope="col" class="px-4 py-3">Pickup Date</th>
+                  <th scope="col" class="px-4 py-3">Pickup Address</th>
+                  <th scope="col" class="px-4 py-3">Pickup lga</th>
+                  <th scope="col" class="px-4 py-3">quantity (trash bin)</th>
+                  <th scope="col" class="px-4 py-3">status</th>
+                  <th scope="col" class="px-4 py-3">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% pickups.forEach(function(pickup) { %>
+                <tr class="border-b fdark:border-gray-700">
+                  <th
+                    scope="row"
+                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap fdark:text-white"
+                  >
+                    <%= new Date(pickup.date).toDateString() %>
+                  </th>
+                  <td class="px-4 py-3"><%= pickup.address %></td>
+                  <td class="px-4 py-3"><%= pickup.lga %></td>
+                  <td class="px-4 py-3"><%= pickup.quantity%></td>
+
+                  <% if (pickup.status === 'pending') { %>
+                  <td class="px-4 py-3">
+                    <span
+                      class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full fdark:bg-yellow-900 fdark:text-yellow-300"
+                      ><%= pickup.status %></span
+                    >
+                  </td>
+
+                  <% } else if (pickup.status === 'success') { %>
+                  <td class="px-4 py-3">
+                    <span
+                      class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full fdark:bg-green-900 fdark:text-green-300"
+                      ><%= pickup.status %></span
+                    >
+                  </td>
+                  <% } else { %>
+                  <td class="px-4 py-3">
+                    <span
+                      class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full fdark:bg-red-900 fdark:text-red-300"
+                      ><%= pickup.status %></span
+                    >
+                  </td>
+
+                  <% } %>
+
+                  <td>
+                    <form
+                      action="/admin/pickups/update-status/<%= pickup.id %>"
+                      method="POST"
+                      class="w-full max-w-sm mx-auto"
+                    >
+                      <select
+                        id="pickupStatus"
+                        name="status"
+                        onchange="this.form.submit()"
+                        class="block w-full bg-white border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 p-2"
+                      >
+                        <option value="">Select Status</option>
+                        <option value="success">Success</option>
+                        <option value="failed">Failed</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </form>
+                  </td>
+                </tr>
+
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

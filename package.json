@@ -1,0 +1,39 @@
+{
+  "name": "online-staff-exam",
+  "version": "1.0.0",
+  "description": "An Online Staff Exam platform for recruiting staff",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "dev:ext": "nodemon -e js,ejs,html app.js",
+    "tailwind:css": "postcss public/css/input.css -o public/css/tailwind.css -w"
+  },
+  "keywords": [
+    "exam",
+    "online",
+    "staff",
+    "recruiting"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-sqlite3": "^0.9.15",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "sequelize": "^6.37.4",
+    "socket.io": "^4.8.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "nodemon": "^2.0.22",
+    "postcss": "^8.4.41",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.7"
+  }
+}

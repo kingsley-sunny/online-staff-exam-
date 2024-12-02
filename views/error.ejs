@@ -1,0 +1,30 @@
+<div class="min-h-screen bg-red-500/50 bg-blend-darken flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-lg p-8 md:p-12 lg:p-16">
+    <div class="text-center">
+      <svg
+        class="w-24 h-24 text-red-500 mx-auto"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
+      </svg>
+      <h2 class="text-4xl font-semibold text-gray-800 mt-4">Error.</h2>
+      <p class="mt-4 text-gray-600 text-lg"><%= message %></p>
+      <button
+        onclick="function goBack(e){
+          window.history.go(-1)
+        };  goBack()"
+        class="mt-8 block mx-auto bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded shadow-lg transition duration-300 ease-in-out"
+      >
+        Go Back
+      </button>
+    </div>
+  </div>
+</div>

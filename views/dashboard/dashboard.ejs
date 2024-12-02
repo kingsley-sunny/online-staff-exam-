@@ -1,0 +1,62 @@
+<div class="flex flex-col min-h-screen">
+  <!-- Header -->
+  <div class="pb-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Welcome to the Examination Dashboard</h1>
+      <a
+        href="/dashboard/tests/new"
+        class="text-white bg-primary px-4 py-2 rounded-md font-semibold hover:bg-primary/70 transition duration-300"
+      >
+        Take a Test
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 container mx-auto p-6">
+    <!-- Dashboard Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Number of Tests Taken</h2>
+        <p class="text-2xl font-bold"><%= testsTaken %></p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Number of Tests Passed</h2>
+        <p class="text-2xl font-bold"><%= testsPassed %></p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Number of Tests Failed</h2>
+        <p class="text-2xl font-bold"><%= testsFailed %></p>
+      </div>
+    </div>
+
+    <!-- Recent Tests Table -->
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Recent Tests Taken</h2>
+      <table class="w-full text-left table-auto border-collapse">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="p-2 border-b">Date Taken</th>
+            <th class="p-2 border-b">Title</th>
+            <th class="p-2 border-b">Score</th>
+            <th class="p-2 border-b">Percentage</th>
+            <th class="p-2 border-b">Duration (mins)</th>
+            <th class="p-2 border-b">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% recentTests.forEach(test => { %>
+          <tr class="border-b hover:bg-gray-50">
+            <td class="p-2"><%= new Date(test?.createdAt).toDateString() %></td>
+            <td class="p-2"><%= test.title %></td>
+            <td class="p-2"><%= test.score %></td>
+            <td class="p-2"><%= test.percentage %> %</td>
+            <td class="p-2"><%= test.duration %></td>
+            <td class="p-2 capitalize"><%= test.status %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
